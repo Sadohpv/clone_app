@@ -1,15 +1,15 @@
-import styles from './Sidebar.module.scss';
+import styles from './RightSide.module.scss';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
 
-function Sidebar() {
+function RightSide() {
     return ( 
         <aside className={cx('wrapper')}>
-            <h2>sidebar</h2>
+            <h2>RightSide</h2>
         </aside>
      );
 }
 
-export default Sidebar;
+export default RightSide;
