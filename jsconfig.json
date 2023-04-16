@@ -4,7 +4,11 @@
     "paths": {
       "~/*": [
         "src/*"
-      ] // "~/" cú pháp gợi ý khi viết
+      ] 
     }
-  }
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": ["node_modules"]
 }

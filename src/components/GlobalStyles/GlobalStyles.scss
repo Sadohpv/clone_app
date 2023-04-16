@@ -1,0 +1,24 @@
+@import 'normalize.css';
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2?styles=44818,44819,44817,44816,44820,44821,44812,44813');
+
+:root{
+    --primary-color: #fe2c55;
+
+}
+
+html{
+    font-size: 62.5%;
+
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+
+    font-family: 'Proxima Nova', sans-serif;
+    font-size: 1.6rem;    
+    line-height: 1.5; 
+    text-rendering: optimizeSpeed;// tối ưu tốc độ render font lấy từ nguồn khác                      
+}
