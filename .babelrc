@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "alias": {
+                    "~": "./src" // "~" có thể đổi 
+                }
+            }
+        ]
+    ]
+}

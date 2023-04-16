@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ] // "~/" cú pháp gợi ý khi viết
+    }
+  }
+}
