@@ -36,6 +36,11 @@
     object-fit: cover;
 }   
 
+// .search,
+.search-result {
+    width: 21vw;
+}
+
 .search{
     width: 70%;
     height: 80%;
@@ -73,6 +78,13 @@
     &:focus-within {
         border: 1.5px solid rgba(22 ,24, 35, 0.2);
     }
+    
+}
+.search-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(22 ,24, 35, 0.5);
+    padding: 5px 12px;
 }
 
 .search_close-btn,
