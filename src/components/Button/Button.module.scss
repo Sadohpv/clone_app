@@ -1,0 +1,38 @@
+.wrapper {
+	font-size: 1.6rem;
+	font-weight: 700;
+	border-radius: 4px;
+	padding: 4px 4px;
+	margin-right: 8px;
+	user-select: none;
+
+	&:last-child {
+		margin-right: 12px;
+	}
+
+	&.disable {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+}
+
+.primary {
+	--heigh-width: 40px;
+	height: var(--heigh-width);
+	width: var(--heigh-width);
+	background-color: var(--rgba-color);
+	border-radius: 50%;
+	font-size: 1.6rem;
+	line-height: 0;
+	&:hover {
+		background-color: var(--rgba-color-blur);
+	}
+    
+}
+
+.primary:focus{
+   
+        color: #1770e5;
+        background-color: #dbe7f2;
+   
+}

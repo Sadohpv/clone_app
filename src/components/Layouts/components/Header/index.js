@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faCircleXmark, faMagnifyingGlass, faMessage, faPlus, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
 
@@ -8,6 +8,7 @@ import styles from './Header.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper/index';
 import images from '~/asset/images';
 import AccountItem from '~/components/AccountItem';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 // cho phép viết kiểu cx("post-item") vì sai cú pháp styles.post-item
@@ -34,14 +35,12 @@ function Header() {
 						render={(attrs) => (
 							<div className={cx('search-result')} tabIndex="-a" {...attrs}>
 								<PopperWrapper>
-                                    <h4 className={cx('search-title')}>
-                                        Account
-                                    </h4>
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                </PopperWrapper>
+									<h4 className={cx('search-title')}>Account</h4>
+									<AccountItem />
+									<AccountItem />
+									<AccountItem />
+									<AccountItem />
+								</PopperWrapper>
 							</div>
 						)}
 					>
@@ -58,8 +57,25 @@ function Header() {
 						</div>
 					</Tippy>
 				</div>
-				<div className={cx('logo1')}></div>
-				<div className={cx('action')}></div>
+				<div className={cx('navigate')}></div>
+				<div className={cx('action')}>
+					<Button primary>
+						<FontAwesomeIcon icon={faPlus} />
+					</Button>
+					<Button primary>
+						<FontAwesomeIcon icon={faMessage} />
+					</Button>
+					<Button primary>
+						<FontAwesomeIcon icon={faBell} />
+					</Button>
+					<Button primary disable onClick={()=>{
+						alert("Here");
+					}} 
+					
+					>+
+					
+					</Button>
+				</div>
 			</div>
 		</header>
 	);
