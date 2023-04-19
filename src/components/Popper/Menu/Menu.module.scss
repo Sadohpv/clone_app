@@ -1,0 +1,29 @@
+.action_menu{
+    width: 300px;
+}
+.action_list_title{
+    padding: 0px 12px 2px 12px; 
+}
+
+//Header Menu
+.header_menu{
+    position: relative;
+    height: 50px;
+}
+
+.back_btn{
+    width:  70px;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header_menu_title{
+    position: absolute;
+    // horizon and vertical alignment
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 2.1rem;
+    //
+}

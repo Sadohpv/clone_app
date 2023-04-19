@@ -113,12 +113,20 @@
         background-color: rgba(22 ,24, 35, 0.06);
     }
 }
-.navgate{
+.navigate{
     flex: 1;
-}
-.action{
-    width: 300px;
     display: flex;
     align-items: center;
-    justify-content:flex-end;
+    justify-content: center;
+
+}
+.action{
+    width: 200px;
+    display: flex;
+    align-items: center;
+   
+}
+.action_tippy{
+    height: 40px;
+    width: 40px;
 }

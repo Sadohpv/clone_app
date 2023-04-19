@@ -5,9 +5,10 @@ import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Button({primary,
+function Button({primary=false,
     disable =false, 
     children,
+    name,
     to, href, 
     onClick,
     ...passProps}) {
@@ -36,15 +37,18 @@ function Button({primary,
             }
             });
     }
-
     const classes = cx('wrapper',{
         primary,
         disable,
-    });
+        
+    },name);
     return ( 
-        <Comp className={classes} {...props}>
-            <span>{children}</span>
-        </Comp>
+  
+            <Comp className={classes} {...props}>
+                <span>{children}</span>
+             </Comp>
+      
+        
      );
 }
 

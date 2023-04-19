@@ -1,0 +1,43 @@
+.wrapper {
+	font-size: 1.6rem;
+	font-weight: 700;
+	border-radius: 4px;
+	padding: 4px 4px;
+    margin: 6px;
+	user-select: none;
+
+
+	&.disable {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+}
+
+.navigate {
+	--heigh-width: 45px;
+	height: var(--heigh-width);
+	width: calc(var(--heigh-width)*1.4);
+    background-color: transparent;
+	border-radius: 6px;
+	font-size: 1.8rem;
+	line-height: 0;
+    position: relative;
+	&:hover {
+        background-color: var(--rgba-color);
+	}
+    &:focus {
+        color: #1b74e4;
+        &::after{
+           
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: #1b74e4;
+            right: 0;
+            bottom: -8px;
+        }
+        
+    }
+}
+

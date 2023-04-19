@@ -1,11 +1,12 @@
 .wrapper {
+	width: 100%;
 	font-size: 1.6rem;
 	font-weight: 700;
 	border-radius: 4px;
 	padding: 4px 4px;
 	margin-right: 8px;
 	user-select: none;
-
+	
 	&:last-child {
 		margin-right: 12px;
 	}
@@ -27,7 +28,7 @@
 	&:hover {
 		background-color: var(--rgba-color-blur);
 	}
-    
+   
 }
 
 .primary:focus{
