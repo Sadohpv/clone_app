@@ -42,3 +42,12 @@ a[href]{
     color: var(--text-color);
     text-decoration: none;
 }
+
+//Custom tippy tooltips
+.tippy-arrow {
+    display: none;
+}
+
+.tippy-box{
+    background-color: #39393a;
+}

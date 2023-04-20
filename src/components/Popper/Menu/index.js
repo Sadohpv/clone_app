@@ -1,4 +1,4 @@
-import Tippy from '@tippyjs/react/headless';
+import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -6,11 +6,12 @@ import MenuItem from './MenuItem';
 import HeaderMenu from './HeaderMenu';
 import { useState } from 'react';
 
+
 const cx = classNames.bind(styles);
 
 const defaultFunction = ()=> {};
 
-function Menu({ children, items = [] ,onChange = defaultFunction }) {
+function Menu({ children, items = [] ,onChange = defaultFunction, id}) {
 
 	const [levelMenu, setLevelMenu] = useState([{
 		data : items
@@ -24,6 +25,7 @@ function Menu({ children, items = [] ,onChange = defaultFunction }) {
 			const isParent = !!item.children;
 			
 			return <MenuItem key={index} data={item} onClick={()=>{
+	
 				if(isParent){
 					setLevelMenu(prev => [...prev, item.children])
 				}else{
@@ -34,12 +36,15 @@ function Menu({ children, items = [] ,onChange = defaultFunction }) {
 	};
 
 	return (
-		<Tippy
-			delay={[0, 700]}    	
+		<HeadlessTippy
+			offset={[-40,10]} // Lệch phải và chiều cao
+			trigger='click'
+			hideOnClick
 			interactive
+			placement='bottom'
 			render={(attrs) => (
-				<div className={cx('action_menu')} tabIndex="-1" {...attrs}>
-					<PopperWrapper className={cx('menu_popper')}>
+				<div  className={cx('action_menu')} tabIndex="-1" {...attrs}>
+					<PopperWrapper  className={cx('menu_popper')}>
 						{	
 							levelMenu.length > 1 && 
 							<HeaderMenu title = "Language" 
@@ -55,11 +60,14 @@ function Menu({ children, items = [] ,onChange = defaultFunction }) {
 			onHide = {()=>{
 				setLevelMenu(prev => prev.slice(0,1));
 			}}
-		>
-			<div className={cx('parent_div')}>
-				{children}
-			</div>
-		</Tippy>
+		>	
+			
+				<div className={cx('parent_div')}>
+					{children}
+				</div>
+		
+			
+		</HeadlessTippy>
 	);
 }
 

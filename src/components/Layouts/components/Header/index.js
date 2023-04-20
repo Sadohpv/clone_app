@@ -5,19 +5,28 @@ import {
 	faCartShopping,
 	faCat,
 	faCircleXmark,
+	faCoins,
+	faExclamation,
+	faExclamationCircle,
+	faGear,
 	faHippo,
 	faHouse,
 	faLanguage,
 	faMagnifyingGlass,
 	faMessage,
+	faMoon,
+	faPlugCircleExclamation,
 	faPlus,
 	faShop,
+	faSignOut,
 	faSpinner,
 	faTruckFast,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react/headless';
-import { useEffect, useState } from 'react';
+import HeadlessTippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 
+import { useEffect, useReducer, useState, useRef } from 'react';
 import styles from './Header.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper/index';
 import images from '~/asset/images';
@@ -25,6 +34,7 @@ import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Navigate from '~/components/Navigate';
 import Menu from '~/components/Popper/Menu';
+
 const cx = classNames.bind(styles);
 // cho phép viết kiểu cx("post-item") vì sai cú pháp styles.post-item
 
@@ -61,6 +71,37 @@ const MENU_ITEMS = [
 	},
 ];
 
+const USER_MENU = [
+	{
+		icon: <FontAwesomeIcon icon={faGear} spin/>,
+		title: 'Settings',
+		to: '/settings',
+		desc: 'Edit your information',
+	},
+	{
+		icon: <FontAwesomeIcon icon={faCoins} />,
+		title: 'Coins',
+		to: '/coin',
+		desc: 'Buy some coins',
+	},
+	{
+		icon: <FontAwesomeIcon icon={faMoon} />,
+		title: 'Dark Mode',
+		desc: 'Turn your page into darkside',
+	},
+	{
+		icon: <FontAwesomeIcon icon={faExclamationCircle} />,
+		title: 'Support',
+		desc: 'Tell us if you have what to improve our website',
+	},
+	{
+		icon: <FontAwesomeIcon icon={faSignOut} />,
+		title: 'Logout',
+		desc: 'Tell us if you have what to improve our website',
+		separate : true,
+	},
+]
+
 function Header() {
 	const [searchResult, setSearchResult] = useState([1, 2, 3]);
 
@@ -81,6 +122,12 @@ function Header() {
 
 	const currentUser = true;
 
+	const avt_ref = useRef();
+
+	// useEffect(() => {
+	// 	console.log(avt_ref.current);
+	// })
+
 	return (
 		<header className={cx('wrapper')}>
 			<div className={cx('inner')}>
@@ -88,7 +135,9 @@ function Header() {
 					<div className={cx('logo_header')}>
 						<img className={cx('image')} src={images.logo} alt="Logo" />
 					</div>
-					<Tippy
+
+					<HeadlessTippy
+						trigger='click'
 						interactive
 						render={(attrs) => (
 							<div className={cx('search-result')} tabIndex="-1" {...attrs}>
@@ -113,51 +162,48 @@ function Header() {
 								<FontAwesomeIcon icon={faMagnifyingGlass} />
 							</button>
 						</div>
-					</Tippy>
+					</HeadlessTippy>
 				</div>
 				<div className={cx('navigate')}>
-					<Navigate navigate>
+					<Navigate navigate content="Home">
 						<FontAwesomeIcon icon={faHouse} />
 					</Navigate>
-					<Navigate navigate>
+					<Navigate navigate content="Shop">
 						<FontAwesomeIcon icon={faShop} />
 					</Navigate>
-					<Navigate navigate>
+					<Navigate navigate content="Cart">
 						<FontAwesomeIcon icon={faCartShopping} />
 					</Navigate>
-					<Navigate navigate>
+					<Navigate navigate content="On Shipping">
 						<FontAwesomeIcon icon={faTruckFast} />
 					</Navigate>
 				</div>
 				<div className={cx('action')}>
-				{currentUser ? (
-					
+					{currentUser ? (
 						<>
-							<Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-								<Button primary>
-									<FontAwesomeIcon icon={faPlus} />
-								</Button>
+							<Menu items={MENU_ITEMS} onChange={handleMenuChange} >
+									<Button primary content='Plus'>
+										<FontAwesomeIcon icon={faPlus} />
+									</Button>
 							</Menu>
-							<Button primary>
+
+							<Button primary content='Message'>
 								<FontAwesomeIcon icon={faMessage} />
 							</Button>
-							<Button primary>
+							<Button primary content='Notify'>
 								<FontAwesomeIcon icon={faBell} />
 							</Button>
-							<Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-							
-								<Button avatar>
-									<img 
+							<Menu items={USER_MENU} onChange={handleMenuChange} >
+								<Button avatar content='Account'>
+									<img
 										className={cx('user_avatar')}
-										alt = "Tran Huyen Pham"
-										src = "https://scontent.fhan5-11.fna.fbcdn.net/v/t1.15752-9/341117275_250454250831098_4350385665672820303_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=pb80y__E2IYAX_yeZkf&_nc_ht=scontent.fhan5-11.fna&oh=03_AdRkuLRUorPw0TkWWUBUELyRZhw0yXM6Nv87zpnC1afy5A&oe=6467B09A"
+										alt="Tran Huyen Pham"
+										src="https://scontent.fhan5-11.fna.fbcdn.net/v/t1.15752-9/341117275_250454250831098_4350385665672820303_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=pb80y__E2IYAX_yeZkf&_nc_ht=scontent.fhan5-11.fna&oh=03_AdRkuLRUorPw0TkWWUBUELyRZhw0yXM6Nv87zpnC1afy5A&oe=6467B09A"
 									/>
 								</Button>
 							</Menu>
 						</>
-					
-				) : (
-					
+					) : (
 						<>
 							<Button primary>
 								<FontAwesomeIcon icon={faMessage} />
@@ -171,8 +217,7 @@ function Header() {
 								+
 							</Button>
 						</>
-					
-				)}
+					)}
 				</div>
 			</div>
 		</header>

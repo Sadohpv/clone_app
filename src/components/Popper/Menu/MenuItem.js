@@ -7,6 +7,7 @@ const cx = classNames.bind(styles)
 
 function MenuItem({data,onClick,toLink,hrefLink}) {
     let Comp = 'div';
+    
     const props = {
         onClick: onClick,
     }
@@ -18,8 +19,12 @@ function MenuItem({data,onClick,toLink,hrefLink}) {
         props.href = hrefLink;
         Comp = 'a';
     }
+
+    const classes = cx('menu_item',{
+        separate: data.separate
+    })
     return ( 
-        <Comp className={cx('menu_item')} {...props} >
+        <Comp className={classes } {...props} >
             <Button
                 primary 
                 name = {cx('menu_icon')}

@@ -1,9 +1,9 @@
 .action_menu{
-    width: 300px;
+   max-width: 280px;
 }
-.action_list_title{
-    padding: 0px 12px 2px 12px; 
-}
+// .action_list_title{
+//     padding: 0px 50px 2px 12px; 
+// }
 
 //Header Menu
 .header_menu{
@@ -29,4 +29,8 @@
 }
 .parent_div{
     height: 40px;
+    width: 40px;
+    background-color: transparent;
+    margin-right: 8px;
+    border-radius: 50%;
 }
