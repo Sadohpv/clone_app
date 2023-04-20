@@ -16,7 +16,7 @@ import {
 	faTruckFast,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from './Header.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper/index';
@@ -28,38 +28,37 @@ import Menu from '~/components/Popper/Menu';
 const cx = classNames.bind(styles);
 // cho phép viết kiểu cx("post-item") vì sai cú pháp styles.post-item
 
-
 const MENU_ITEMS = [
 	{
-		icon: <FontAwesomeIcon icon={faLanguage}/>,
-		title: "English",
-		desc : "Change your language",
+		icon: <FontAwesomeIcon icon={faLanguage} />,
+		title: 'English',
+		desc: 'Change your language',
 		children: {
 			title: 'Language',
 			data: [
 				{
 					code: 'en',
-					title: 'English'
+					title: 'English',
 				},
 				{
 					code: 'vi',
-					title: 'Tiếng Việt'
-				}
-			]
-		}
+					title: 'Tiếng Việt',
+				},
+			],
+		},
 	},
 	{
-		icon: <FontAwesomeIcon icon ={faHippo}/>,
-		title: "Hippo",
-		to: "/hippo",
-		desc : "This is link to one of localpage"
+		icon: <FontAwesomeIcon icon={faHippo} />,
+		title: 'Hippo',
+		to: '/hippo',
+		desc: 'This is link to one of localpage',
 	},
 	{
-		icon: <FontAwesomeIcon icon={faCat}/>,
-		title: "Neko",
-		desc : "It's just a cat i don't know what to write. Love me in the air",
-		href : "https://www.instagram.com/",
-	}
+		icon: <FontAwesomeIcon icon={faCat} />,
+		title: 'Neko',
+		desc: "It's just a cat i don't know what to write. Love me in the air",
+		href: 'https://www.instagram.com/',
+	},
 ];
 
 function Header() {
@@ -73,8 +72,14 @@ function Header() {
 
 	//handle logic
 	const handleMenuChange = (menuItem) => {
-
+		switch (menuItem.type) {
+			case 'language':
+				break;
+			default:
+		}
 	};
+
+	const currentUser = true;
 
 	return (
 		<header className={cx('wrapper')}>
@@ -125,27 +130,49 @@ function Header() {
 					</Navigate>
 				</div>
 				<div className={cx('action')}>
-					<Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-						<Button primary>
-							<FontAwesomeIcon icon={faPlus} />
-						</Button>
-					</Menu>
-
-					<Button primary>
-						<FontAwesomeIcon icon={faMessage} />
-					</Button>
-					<Button primary>
-						<FontAwesomeIcon icon={faBell} />
-					</Button>
-					<Button
-						primary
-						disable
-						onClick={() => {
-							alert('Here');
-						}}
-					>
-						+
-					</Button>
+				{currentUser ? (
+					
+						<>
+							<Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+								<Button primary>
+									<FontAwesomeIcon icon={faPlus} />
+								</Button>
+							</Menu>
+							<Button primary>
+								<FontAwesomeIcon icon={faMessage} />
+							</Button>
+							<Button primary>
+								<FontAwesomeIcon icon={faBell} />
+							</Button>
+							<Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+							
+								<Button avatar>
+									<img 
+										className={cx('user_avatar')}
+										alt = "Tran Huyen Pham"
+										src = "https://scontent.fhan5-11.fna.fbcdn.net/v/t1.15752-9/341117275_250454250831098_4350385665672820303_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=pb80y__E2IYAX_yeZkf&_nc_ht=scontent.fhan5-11.fna&oh=03_AdRkuLRUorPw0TkWWUBUELyRZhw0yXM6Nv87zpnC1afy5A&oe=6467B09A"
+									/>
+								</Button>
+							</Menu>
+						</>
+					
+				) : (
+					
+						<>
+							<Button primary>
+								<FontAwesomeIcon icon={faMessage} />
+							</Button>
+							<Button
+								primary
+								onClick={() => {
+									alert('Here');
+								}}
+							>
+								+
+							</Button>
+						</>
+					
+				)}
 				</div>
 			</div>
 		</header>

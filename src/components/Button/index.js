@@ -6,7 +6,8 @@ import styles from './Button.module.scss';
 const cx = classNames.bind(styles);
 
 function Button({primary=false,
-    disable =false, 
+    disable =false,
+    avatar=false, 
     children,
     name,
     to, href, 
@@ -40,13 +41,13 @@ function Button({primary=false,
     const classes = cx('wrapper',{
         primary,
         disable,
-        
+        avatar,
     },name);
     return ( 
   
             <Comp className={classes} {...props}>
-                <span>{children}</span>
-             </Comp>
+                {children}
+            </Comp>
       
         
      );

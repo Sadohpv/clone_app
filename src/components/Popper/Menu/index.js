@@ -52,8 +52,13 @@ function Menu({ children, items = [] ,onChange = defaultFunction }) {
 					</PopperWrapper>
 				</div>
 			)}
+			onHide = {()=>{
+				setLevelMenu(prev => prev.slice(0,1));
+			}}
 		>
-			<div>{children}</div>
+			<div className={cx('parent_div')}>
+				{children}
+			</div>
 		</Tippy>
 	);
 }
