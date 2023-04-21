@@ -34,7 +34,7 @@ import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Navigate from '~/components/Navigate';
 import Menu from '~/components/Popper/Menu';
-
+import Image from '~/components/Image';
 const cx = classNames.bind(styles);
 // cho phép viết kiểu cx("post-item") vì sai cú pháp styles.post-item
 
@@ -195,10 +195,11 @@ function Header() {
 							</Button>
 							<Menu items={USER_MENU} onChange={handleMenuChange} >
 								<Button avatar content='Account'>
-									<img
+									<Image
 										className={cx('user_avatar')}
 										alt="Tran Huyen Pham"
 										src="https://scontent.fhan5-11.fna.fbcdn.net/v/t1.15752-9/341117275_250454250831098_4350385665672820303_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=pb80y__E2IYAX_yeZkf&_nc_ht=scontent.fhan5-11.fna&oh=03_AdRkuLRUorPw0TkWWUBUELyRZhw0yXM6Nv87zpnC1afy5A&oe=6467B09A"
+										fallback = "https://scontent.xx.fbcdn.net/v/t1.15752-9/341435170_267239282438274_156870771826213755_n.jpg?stp=dst-jpg_p160x160&_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=J5MKTQzYCY8AX_LUS1h&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSYJ5snIiPM4edE3k1olCHsoU-6CFnLVs6DpOhVKsGVqQ&oe=6469D20D"
 									/>
 								</Button>
 							</Menu>
