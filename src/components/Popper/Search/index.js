@@ -28,7 +28,6 @@ function Search() {
 
 			return;
 		}
-		
 
 		const fetchApi = async () => {
 			setLoading(true);
@@ -37,8 +36,7 @@ function Search() {
 			setSearchResult(results);
 
 			setLoading(false);
-
-		}
+		};
 		fetchApi();
 
 		// encodeURIComponent : mã hóa tránh trùng với kí tự quy ước của url
@@ -61,7 +59,18 @@ function Search() {
 			inputSearch.current.focus();
 		});
 	};
+	const handleChange = (e) => {
+		const searchValueCurrent = e.target.value;
+		if (!searchValueCurrent.startsWith(' ')) {
+			setSearchValue(searchValueCurrent);
+		}
+	};
 
+	const handleKeyDown = (e) => {
+		if(e.keyCode === 13){
+			alert('Search');
+		}
+	}
 	return (
 		<>
 			<HeadlessTippy
@@ -79,9 +88,10 @@ function Search() {
 									className={cx('search_input')}
 									placeholder="Search something...."
 									spellCheck={false}
-									onChange={(e) => setSearchValue(e.target.value)}
+									onChange={handleChange}
 									value={searchValue}
 									ref={inputSearch}
+									onKeyDown={handleKeyDown}
 								/>
 								{!!searchValue && !loading && (
 									<Button className={cx('search_close-btn')} primary onClick={handleClear}>

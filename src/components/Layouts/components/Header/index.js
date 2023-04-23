@@ -33,6 +33,8 @@ import Navigate from '~/components/Navigate';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
 import styles from './Header.module.scss';
+import { Link } from 'react-router-dom';
+import routesConfig from '~/config/routes';
 
 
 const cx = classNames.bind(styles);
@@ -132,9 +134,9 @@ function Header() {
 		<header className={cx('wrapper')}>
 			<div className={cx('inner')}>
 				<div className={cx('logo')}>
-					<div className={cx('logo_header')}>
+					<Link to={routesConfig.home} className={cx('logo_header')}>
 						<img className={cx('image')} src={images.logo} alt="Logo" />
-					</div>
+					</Link>
 					{/* Search */}
 					<Search>
 						

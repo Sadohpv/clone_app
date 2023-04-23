@@ -24,6 +24,7 @@
 	// 	display: block;
 	// 	z-index: 999;
 	// }
+	
 }
 .search-title {
 	width: calc(100% - var(--search-btn-width));
@@ -35,6 +36,8 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+
+
 }
 
 .search_find-btn {
@@ -86,7 +89,8 @@
 		border: 1.5px solid rgba(22, 24, 35, 0.2);
 		
     }
-	
+	font-family: 'Proxima Nova', sans-serif;
+
 } 
 .wrapper{
 	margin-right: 0;
