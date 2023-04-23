@@ -37,6 +37,7 @@ function Menu({ children, items = [] ,onChange = defaultFunction, id}) {
 
 	return (
 		<HeadlessTippy
+			zIndex={999}
 			offset={[-40,10]} // Lệch phải và chiều cao
 			trigger='click'
 			hideOnClick

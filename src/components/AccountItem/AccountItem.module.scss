@@ -1,15 +1,22 @@
 .wrapper{
     display: flex;
     align-items: center;
-    padding: 9px 16px ;
+    padding: 9px 0px ;
+    margin: 0 9px;
+    
+    border-radius: 6px;
     cursor: pointer;
     &:hover{
         background-color: rgba(22,24,35,0.034);
+    }
+    img{
+        margin-left: 8px;
     }
 }
 .avatar{
     width: 40px;
     height: 40px;
+    
     border-radius: 50%;
     object-fit: cover;
 }
@@ -17,11 +24,16 @@
 .info{
     flex: 1;
     margin-left: 12px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .name{
+    // position: absolute;
     height: 28px;
-    font-size: 1.4em;
+    font-size: 1.4rem;
+   
     font-weight: 600;
 }
 .check{
@@ -30,6 +42,7 @@
     color: rgb(32, 213, 236);
 }
 .username{
+    // position: absolute;
     font-size: 1.4rem;
     color: rgba(22,24,35,0.5);
 }

@@ -15,25 +15,28 @@ function Button({
 	href,
 	content,
 	icon = false,
+	className,
 	onClick,
 	...passProps
 }) {
 	let Comp = 'button';
+
 	const props = {
 		onClick: onClick,
 		...passProps,
 	};
-
+	// console.log(onClick);
 	const [isFocused, setIsFocused] = useState(false);
 	const btnClick = useRef();
+
 	const hanldeByClick = (e) => {
-		// console.log(e.target);
-		// console.log(btnClick)
-		// const TF = !isFocused;
-		// setIsFocused(TF);
-		// if(TF===false){
-		//     btnClick.current.blur();
-		// }
+
+		if(typeof props.onClick !== 'function'){
+			e.preventDefault();
+		}else {
+			props.onClick();
+
+		}
 	};
 
 	// Local link or external link
@@ -62,6 +65,7 @@ function Button({
 			avatar,
 		},
 		name,
+		className,
 	);
 
 	if (content !== undefined) {

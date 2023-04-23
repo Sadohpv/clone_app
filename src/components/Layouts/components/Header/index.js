@@ -4,9 +4,9 @@ import {
 	faBell,
 	faCartShopping,
 	faCat,
-	faCircleXmark,
+
 	faCoins,
-	faExclamation,
+
 	faExclamationCircle,
 	faGear,
 	faHippo,
@@ -15,26 +15,26 @@ import {
 	faMagnifyingGlass,
 	faMessage,
 	faMoon,
-	faPlugCircleExclamation,
+
 	faPlus,
 	faShop,
 	faSignOut,
-	faSpinner,
+
 	faTruckFast,
 } from '@fortawesome/free-solid-svg-icons';
-import HeadlessTippy from '@tippyjs/react/headless';
-import Tippy from '@tippyjs/react';
+
 import 'tippy.js/dist/tippy.css';
 
 import { useEffect, useReducer, useState, useRef } from 'react';
-import styles from './Header.module.scss';
-import { Wrapper as PopperWrapper } from '~/components/Popper/index';
 import images from '~/asset/images';
-import AccountItem from '~/components/AccountItem';
+import Search from '~/components/Popper/Search';
 import Button from '~/components/Button';
 import Navigate from '~/components/Navigate';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
+import styles from './Header.module.scss';
+
+
 const cx = classNames.bind(styles);
 // cho phép viết kiểu cx("post-item") vì sai cú pháp styles.post-item
 
@@ -73,7 +73,7 @@ const MENU_ITEMS = [
 
 const USER_MENU = [
 	{
-		icon: <FontAwesomeIcon icon={faGear} spin/>,
+		icon: <FontAwesomeIcon icon={faGear} spin />,
 		title: 'Settings',
 		to: '/settings',
 		desc: 'Edit your information',
@@ -98,9 +98,9 @@ const USER_MENU = [
 		icon: <FontAwesomeIcon icon={faSignOut} />,
 		title: 'Logout',
 		desc: 'Tell us if you have what to improve our website',
-		separate : true,
+		separate: true,
 	},
-]
+];
 
 function Header() {
 	const [searchResult, setSearchResult] = useState([1, 2, 3]);
@@ -135,34 +135,10 @@ function Header() {
 					<div className={cx('logo_header')}>
 						<img className={cx('image')} src={images.logo} alt="Logo" />
 					</div>
-
-					<HeadlessTippy
-						trigger='click'
-						interactive
-						render={(attrs) => (
-							<div className={cx('search-result')} tabIndex="-1" {...attrs}>
-								<PopperWrapper>
-									<h4 className={cx('search-title')}>Account</h4>
-									<AccountItem />
-									<AccountItem />
-									<AccountItem />
-									<AccountItem />
-								</PopperWrapper>
-							</div>
-						)}
-					>
-						<div className={cx('search')}>
-							<input className={cx('search_input')} placeholder="Search something...." spellCheck={false} />
-							<button className={cx('search_close-btn')}>
-								<FontAwesomeIcon icon={faCircleXmark} />
-							</button>
-							<FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-
-							<button className={cx('search_find-btn')}>
-								<FontAwesomeIcon icon={faMagnifyingGlass} />
-							</button>
-						</div>
-					</HeadlessTippy>
+					{/* Search */}
+					<Search>
+						
+					</Search>
 				</div>
 				<div className={cx('navigate')}>
 					<Navigate navigate content="Home">
@@ -181,25 +157,25 @@ function Header() {
 				<div className={cx('action')}>
 					{currentUser ? (
 						<>
-							<Menu items={MENU_ITEMS} onChange={handleMenuChange} >
-									<Button primary content='Plus'>
-										<FontAwesomeIcon icon={faPlus} />
-									</Button>
+							<Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+								<Button primary content="Plus">
+									<FontAwesomeIcon icon={faPlus} />
+								</Button>
 							</Menu>
 
-							<Button primary content='Message'>
+							<Button primary content="Message">
 								<FontAwesomeIcon icon={faMessage} />
 							</Button>
-							<Button primary content='Notify'>
+							<Button primary content="Notify">
 								<FontAwesomeIcon icon={faBell} />
 							</Button>
-							<Menu items={USER_MENU} onChange={handleMenuChange} >
-								<Button avatar content='Account'>
+							<Menu items={USER_MENU} onChange={handleMenuChange}>
+								<Button avatar content="Account">
 									<Image
 										className={cx('user_avatar')}
 										alt="Tran Huyen Pham"
 										src="https://scontent.fhan5-11.fna.fbcdn.net/v/t1.15752-9/341117275_250454250831098_4350385665672820303_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=pb80y__E2IYAX_yeZkf&_nc_ht=scontent.fhan5-11.fna&oh=03_AdRkuLRUorPw0TkWWUBUELyRZhw0yXM6Nv87zpnC1afy5A&oe=6467B09A"
-										fallback = "https://scontent.xx.fbcdn.net/v/t1.15752-9/341435170_267239282438274_156870771826213755_n.jpg?stp=dst-jpg_p160x160&_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=J5MKTQzYCY8AX_LUS1h&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSYJ5snIiPM4edE3k1olCHsoU-6CFnLVs6DpOhVKsGVqQ&oe=6469D20D"
+										fallback="https://scontent.xx.fbcdn.net/v/t1.15752-9/341435170_267239282438274_156870771826213755_n.jpg?stp=dst-jpg_p160x160&_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=J5MKTQzYCY8AX_LUS1h&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSYJ5snIiPM4edE3k1olCHsoU-6CFnLVs6DpOhVKsGVqQ&oe=6469D20D"
 									/>
 								</Button>
 							</Menu>

@@ -41,7 +41,9 @@ function Navigate({ navigate, disable = false, children, to, href, onClick, cont
 	});
     
 	return (
-		<Tippy content={content} placement="bottom">
+		<Tippy
+		zIndex={99} 
+		content={content} placement="bottom">
 			<Comp className={classes} {...props}>
 				<span>{children}</span>
 			</Comp>

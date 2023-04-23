@@ -21,8 +21,9 @@ const publicRoutes = [
         component: Follow,
     },
     {
-        path: '/profile',
+        path: '/profile/:nickname', //@ là dấu cố định có thể custom , ":nickname là path"
         component: Profile,
+
     },
     {
         path: '/upload',
