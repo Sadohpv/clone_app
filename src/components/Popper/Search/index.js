@@ -10,6 +10,7 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper/index';
 import { useRef, useState, useEffect } from 'react';
 import { useDebounce } from '~/hooks';
+import BodyMenu from '../Menu/BodyMenu';
 
 const cx = classNames.bind(styles);
 function Search() {
@@ -67,10 +68,10 @@ function Search() {
 	};
 
 	const handleKeyDown = (e) => {
-		if(e.keyCode === 13){
+		if (e.keyCode === 13) {
 			alert('Search');
 		}
-	}
+	};
 	return (
 		<>
 			<HeadlessTippy
@@ -106,10 +107,11 @@ function Search() {
 								)}
 							</div>
 							{searchResult.length > 0 && <h4 className={cx('search_result-title')}>Account</h4>}
-
-							{searchResult.map((result) => (
-								<AccountItem key={result.id} data={result} />
-							))}
+							<BodyMenu>
+								{searchResult.map((result) => (
+									<AccountItem key={result.id} data={result} />
+								))}
+							</BodyMenu>
 						</PopperWrapper>
 					</div>
 				)}

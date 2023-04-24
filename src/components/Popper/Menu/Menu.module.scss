@@ -1,36 +1,43 @@
-.action_menu{
-   max-width: 280px;
+.action_menu {
+	// width: 100%;
+    min-width: 180px;
+	max-width: 270px;
 }
 // .action_list_title{
-//     padding: 0px 50px 2px 12px; 
+//     padding: 0px 50px 2px 12px;
 // }
 
 //Header Menu
-.header_menu{
-    position: relative;
-    height: 50px;
+.header_menu {
+	position: relative;
+	height: 50px;
 }
 
-.back_btn{
-    width:  70px;
-    height: 100%;
-    background-color: transparent;
-    cursor: pointer;
+.back_btn {
+	width: 50px;
+	height: 100%;
+	background-color: transparent;
+	cursor: pointer;
 }
-
-.header_menu_title{
-    position: absolute;
-    // horizon and vertical alignment
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    font-size: 2.1rem;
-    //
+.menu_body{
+	height: 100%;
+    overflow-y: auto;
 }
-.parent_div{
-    height: 40px;
-    width: 40px;
-    background-color: transparent;
-    margin-right: 8px;
-    border-radius: 50%;
+.header_menu_title {
+	position: absolute;
+	// horizon and vertical alignment
+    margin-left: 10px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 2.1rem;
+	flex-shrink: 0;
+	//
+}
+.parent_div {
+	height: 40px;
+	width: 40px;
+	background-color: transparent;
+	margin-right: 8px;
+	border-radius: 50%;
 }

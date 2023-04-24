@@ -31,8 +31,24 @@ body{
     font-size: 1.6rem;    
     line-height: 1.5; 
     text-rendering: optimizeSpeed;// tối ưu tốc độ render font lấy từ nguồn khác                      
-    
+    overflow-y: overlay;
 }
+//Scrollbar CSS
+
+html *::-webkit-scrollbar{ // toàn bộ thanh scroll
+    border-radius: 0;
+    width: 8px;
+}
+html *::-webkit-scrollbar-thumb{ //Thanh Scroll
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+html *::-webkit-scrollbar-track{ // Đường trượt scrollbar
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0);
+
+}
+
 
 button, input , [tabindex]{
     outline: none;

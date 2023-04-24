@@ -5,69 +5,72 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItem';
 import HeaderMenu from './HeaderMenu';
 import { useState } from 'react';
-
-
+import BodyMenu from './BodyMenu';
 const cx = classNames.bind(styles);
 
-const defaultFunction = ()=> {};
+const defaultFunction = () => {};
 
-function Menu({ children, items = [] ,onChange = defaultFunction, id}) {
+function Menu({ children, items = [], onChange = defaultFunction, id }) {
+	const [levelMenu, setLevelMenu] = useState([
+		{
+			data: items,
+		},
+	]);
 
-	const [levelMenu, setLevelMenu] = useState([{
-		data : items
-	}]);
-
-	const current = levelMenu[levelMenu.length - 1] 
+	const current = levelMenu[levelMenu.length - 1];
 
 	const renderItems = () => {
-		
 		return current.data.map((item, index) => {
 			const isParent = !!item.children;
-			
-			return <MenuItem key={index} data={item} onClick={()=>{
-	
-				if(isParent){
-					setLevelMenu(prev => [...prev, item.children])
-				}else{
-					onChange(item);
-				}
-			}} toLink = {item.to} hrefLink={item.href} />;
+
+			return (
+				<MenuItem
+					key={index}
+					data={item}
+					onClick={() => {
+						if (isParent) {
+							setLevelMenu((prev) => [...prev, item.children]);
+						} else {
+							onChange(item);
+						}
+					}}
+					toLink={item.to}
+					hrefLink={item.href}
+				/>
+			);
 		});
 	};
 
 	return (
 		<HeadlessTippy
 			zIndex={999}
-			offset={[-40,10]} // Lệch phải và chiều cao
-			trigger='click'
+			offset={[-40, 10]} // Lệch phải và chiều cao
+			trigger="click"
 			hideOnClick
 			interactive
-			placement='bottom'
+			placement="bottom"
 			render={(attrs) => (
-				<div  className={cx('action_menu')} tabIndex="-1" {...attrs}>
-					<PopperWrapper  className={cx('menu_popper')}>
-						{	
-							levelMenu.length > 1 && 
-							<HeaderMenu title = "Language" 
-								onBack={()=>{
-									setLevelMenu(prev => prev.slice(0,prev.length -1));
+				<div className={cx('action_menu')} tabIndex="-1" {...attrs}>
+					<PopperWrapper className='menu_popper'>
+						{levelMenu.length > 1 && (
+							<HeaderMenu
+								title="Language"
+								onBack={() => {
+									setLevelMenu((prev) => prev.slice(0, prev.length - 1));
 								}}
 							/>
-						}
-						{renderItems()}
+						)}
+						<BodyMenu>
+							{renderItems()}
+						</BodyMenu>
 					</PopperWrapper>
 				</div>
 			)}
-			onHide = {()=>{
-				setLevelMenu(prev => prev.slice(0,1));
+			onHide={() => {
+				setLevelMenu((prev) => prev.slice(0, 1));
 			}}
-		>	
-			
-				<div className={cx('parent_div')}>
-					{children}
-				</div>
-		
-			
+		>
+			<div className={cx('parent_div')}>{children}</div>
 		</HeadlessTippy>
 	);
 }
