@@ -2,7 +2,7 @@ import Button from "~/components/Button";
 import classNames from "classnames/bind";
 import styles from './MenuItem.module.scss'
 import { Link } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 const cx = classNames.bind(styles)
 
 function MenuItem({data,onClick,toLink,hrefLink}) {
@@ -38,5 +38,10 @@ function MenuItem({data,onClick,toLink,hrefLink}) {
         </Comp>
     );
 }
-
+MenuItem.propTypes={
+    data : PropTypes.object,
+    toLink: PropTypes.string,
+    toHref: PropTypes.string,
+    onClick: PropTypes.func,
+}
 export default MenuItem;

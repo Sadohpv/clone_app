@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-import { searchService } from '~/apiServices/searchService';
+import { searchService } from '~/services/searchService';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import AccountItem from '~/components/AccountItem';

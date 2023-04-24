@@ -6,6 +6,8 @@ import MenuItem from './MenuItem';
 import HeaderMenu from './HeaderMenu';
 import { useState } from 'react';
 import BodyMenu from './BodyMenu';
+import PropTypes from 'prop-types';
+
 const cx = classNames.bind(styles);
 
 const defaultFunction = () => {};
@@ -56,7 +58,7 @@ function Menu({ children, items = [], onChange = defaultFunction, ...passProps }
 						<PopperWrapper className="menu_popper">
 							{levelMenu.length > 1 && (
 								<HeaderMenu
-									title="Language"
+									title={current.title}
 									onBack={() => {
 										setLevelMenu((prev) => prev.slice(0, prev.length - 1));
 									}}
@@ -76,4 +78,9 @@ function Menu({ children, items = [], onChange = defaultFunction, ...passProps }
 	);
 }
 
+Menu.propTypes = {
+	children: PropTypes.node.isRequired,
+	items : PropTypes.array,
+	onChange: PropTypes.func,
+}
 export default Menu;

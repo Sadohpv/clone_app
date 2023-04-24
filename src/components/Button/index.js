@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
 import Tippy from '@tippyjs/react/';
 import { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+import { icon } from '@fortawesome/fontawesome-svg-core';
 const cx = classNames.bind(styles);
 
 function Button({
@@ -85,6 +87,24 @@ function Button({
 			</Tippy>
 		);
 	}
+}
+
+Button.propTypes = {
+	 // node : the children can be rendered
+	children: PropTypes.node.isRequired, // isRequired : can not be undefined 
+	
+	primary :PropTypes.bool,
+	disable:PropTypes.bool,
+	avatar :PropTypes.bool,
+	icon:PropTypes.bool,
+	name:PropTypes.string,
+	to:PropTypes.string,
+	href:PropTypes.string,
+	content:PropTypes.string,
+	className:PropTypes.string,
+	onClick:PropTypes.func,
+	
+
 }
 
 export default Button;

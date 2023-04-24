@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import images from "~/asset/images";
 import { useState } from "react";
 import styles from './Image.module.scss'
@@ -22,4 +23,10 @@ function Image({src,alt,fallback : customFallback = images.defaultAvt,className,
      );
 }
 
+Image.propTypes = {
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    fallback: PropTypes.string,
+    className: PropTypes.string,
+}
 export default Image;

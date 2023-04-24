@@ -1,8 +1,8 @@
 // Import Layout
-import { HeaderOnly } from '~/components/Layouts';
+import { HeaderOnly } from '~/Layouts';
 
 // Import Routes Configuration
-import routesConfig from '~/config/routes';
+import config from '~/config';
 // Import Pages
 import Home from '~/pages/Home/';
 import Follow from '~/pages/Follow/';
@@ -14,25 +14,25 @@ import Search from '~/pages/Search';
 //Public Route
 const publicRoutes = [
     {
-        path: routesConfig.home,
+        path: config.routes.home,
         component: Home,
     },
     {
-        path: routesConfig.follow,
+        path: config.routes.follow,
         component: Follow,
     },
     {
-        path: routesConfig.profile, //@ là dấu cố định có thể custom , ":nickname là path"
+        path: config.routes.profile, //@ là dấu cố định có thể custom , ":nickname là path"
         component: Profile,
 
     },
     {
-        path: routesConfig.upload,
+        path: config.routes.upload,
         component: Upload,
         layout: HeaderOnly,
     },
     {
-        path: routesConfig.search,
+        path: config.routes.search,
         component: Search,
         layout: null,
     }

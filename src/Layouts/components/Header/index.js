@@ -4,9 +4,7 @@ import {
 	faBell,
 	faCartShopping,
 	faCat,
-
 	faCoins,
-
 	faExclamationCircle,
 	faGear,
 	faHippo,
@@ -15,11 +13,9 @@ import {
 	faMagnifyingGlass,
 	faMessage,
 	faMoon,
-
 	faPlus,
 	faShop,
 	faSignOut,
-
 	faTruckFast,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -34,8 +30,7 @@ import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
-import routesConfig from '~/config/routes';
-
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 // cho phép viết kiểu cx("post-item") vì sai cú pháp styles.post-item
@@ -49,13 +44,15 @@ const MENU_ITEMS = [
 			title: 'Language',
 			data: [
 				{
+					icon: <FontAwesomeIcon icon={faHippo} />,
 					code: 'en',
 					title: 'English',
 				},
 				{
+					icon: <FontAwesomeIcon icon={faHippo} />,
 					code: 'vi',
 					title: 'Tiếng Việt',
-				}
+				},
 			],
 		},
 	},
@@ -134,13 +131,11 @@ function Header() {
 		<header className={cx('wrapper')}>
 			<div className={cx('inner')}>
 				<div className={cx('logo')}>
-					<Link to={routesConfig.home} className={cx('logo_header')}>
+					<Link to={config.routes.home} className={cx('logo_header')}>
 						<img className={cx('image')} src={images.logo} alt="Logo" />
 					</Link>
 					{/* Search */}
-					<Search>
-						
-					</Search>
+					<Search></Search>
 				</div>
 				<div className={cx('navigate')}>
 					<Navigate navigate content="Home">
@@ -193,7 +188,12 @@ function Header() {
 									alert('Here');
 								}}
 							>
-								+
+								<Image
+									className={cx('user_avatar')}
+									alt="Tran Huyen Pham"
+									src="https://scontent.fhan5-11.fna.fbcdn.net/v/t1.15752-9/341117275_250454250831098_4350385665672820303_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=pb80y__E2IYAX_yeZkf&_nc_ht=scontent.fhan5-11.fna&oh=03_AdRkuLRUorPw0TkWWUBUELyRZhw0yXM6Nv87zpnC1afy5A&oe=6467B09A"
+									fallback="https://scontent.xx.fbcdn.net/v/t1.15752-9/341435170_267239282438274_156870771826213755_n.jpg?stp=dst-jpg_p160x160&_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=J5MKTQzYCY8AX_LUS1h&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSYJ5snIiPM4edE3k1olCHsoU-6CFnLVs6DpOhVKsGVqQ&oe=6469D20D"
+								/>
 							</Button>
 						</>
 					)}
