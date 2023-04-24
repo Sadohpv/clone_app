@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 const defaultFunction = () => {};
 
-function Menu({ children, items = [], onChange = defaultFunction, id }) {
+function Menu({ children, items = [], onChange = defaultFunction, ...passProps }) {
 	const [levelMenu, setLevelMenu] = useState([
 		{
 			data: items,
@@ -42,36 +42,37 @@ function Menu({ children, items = [], onChange = defaultFunction, id }) {
 	};
 
 	return (
-		<HeadlessTippy
-			zIndex={999}
-			offset={[-40, 10]} // Lệch phải và chiều cao
-			trigger="click"
-			hideOnClick
-			interactive
-			placement="bottom"
-			render={(attrs) => (
-				<div className={cx('action_menu')} tabIndex="-1" {...attrs}>
-					<PopperWrapper className='menu_popper'>
-						{levelMenu.length > 1 && (
-							<HeaderMenu
-								title="Language"
-								onBack={() => {
-									setLevelMenu((prev) => prev.slice(0, prev.length - 1));
-								}}
-							/>
-						)}
-						<BodyMenu>
-							{renderItems()}
-						</BodyMenu>
-					</PopperWrapper>
-				</div>
-			)}
-			onHide={() => {
-				setLevelMenu((prev) => prev.slice(0, 1));
-			}}
-		>
-			<div className={cx('parent_div')}>{children}</div>
-		</HeadlessTippy>
+		// div for tippy element not warnings
+		<div>
+			<HeadlessTippy
+				zIndex={999}
+				offset={[-40, 10]} // Lệch phải và chiều cao
+				trigger="click"
+				hideOnClick
+				interactive
+				placement="bottom"
+				render={(attrs) => (
+					<div className={cx('action_menu')} tabIndex="-1" {...attrs}>
+						<PopperWrapper className="menu_popper">
+							{levelMenu.length > 1 && (
+								<HeaderMenu
+									title="Language"
+									onBack={() => {
+										setLevelMenu((prev) => prev.slice(0, prev.length - 1));
+									}}
+								/>
+							)}
+							<BodyMenu>{renderItems()}</BodyMenu>
+						</PopperWrapper>
+					</div>
+				)}
+				onHide={() => {
+					setLevelMenu((prev) => prev.slice(0, 1));
+				}}
+			>
+				<div className={cx('parent_div')}>{children}</div>
+			</HeadlessTippy>
+		</div>
 	);
 }
 
