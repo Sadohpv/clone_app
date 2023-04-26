@@ -4,6 +4,7 @@ const routesConfig = {
     profile: '/profile/:nicknam',
     upload: '/upload',
     search: '/search',
+    group: '/group',
 }
 
 export default routesConfig;

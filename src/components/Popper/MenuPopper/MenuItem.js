@@ -3,6 +3,7 @@ import classNames from "classnames/bind";
 import styles from './MenuItem.module.scss'
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
+
 const cx = classNames.bind(styles)
 
 function MenuItem({data,onClick,toLink,hrefLink}) {

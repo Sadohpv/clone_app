@@ -10,7 +10,7 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper/index';
 import { useRef, useState, useEffect } from 'react';
 import { useDebounce } from '~/hooks';
-import BodyMenu from '../Menu/BodyMenu';
+import BodyMenu from '../MenuPopper/BodyMenu';
 
 const cx = classNames.bind(styles);
 function Search() {

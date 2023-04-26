@@ -26,7 +26,7 @@ import images from '~/asset/images';
 import Search from '~/components/Popper/Search';
 import Button from '~/components/Button';
 import Navigate from '~/components/Navigate';
-import Menu from '~/components/Popper/Menu';
+import Menu from '~/components/Popper/MenuPopper';
 import Image from '~/components/Image';
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
@@ -44,12 +44,12 @@ const MENU_ITEMS = [
 			title: 'Language',
 			data: [
 				{
-					icon: <FontAwesomeIcon icon={faHippo} />,
+					icon:<Image src="https://scontent.xx.fbcdn.net/v/t1.15752-9/342234467_1473808309690753_219900570257451283_n.png?stp=dst-png_s280x280&_nc_cat=111&ccb=1-7&_nc_sid=aee45a&_nc_ohc=chutMb_SdU0AX9qxpoh&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQJ34clwjUtBg89nUpbRbAHjgeFcL-BNZUtdWngIda6qw&oe=646EF200"/>,
 					code: 'en',
 					title: 'English',
 				},
 				{
-					icon: <FontAwesomeIcon icon={faHippo} />,
+					icon:<Image src="https://scontent.xx.fbcdn.net/v/t1.15752-9/342234467_1473808309690753_219900570257451283_n.png?stp=dst-png_s280x280&_nc_cat=111&ccb=1-7&_nc_sid=aee45a&_nc_ohc=chutMb_SdU0AX9qxpoh&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQJ34clwjUtBg89nUpbRbAHjgeFcL-BNZUtdWngIda6qw&oe=646EF200"/>,
 					code: 'vi',
 					title: 'Tiếng Việt',
 				},

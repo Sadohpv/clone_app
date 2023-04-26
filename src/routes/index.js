@@ -1,5 +1,5 @@
 // Import Layout
-import { HeaderOnly } from '~/Layouts';
+import { DefaultLayout, HeaderOnly } from '~/Layouts';
 
 // Import Routes Configuration
 import config from '~/config';
@@ -35,6 +35,11 @@ const publicRoutes = [
         path: config.routes.search,
         component: Search,
         layout: null,
+    },
+    {
+        path: config.routes.group,
+        component: Profile,
+     
     }
     
 ];
