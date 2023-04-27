@@ -1,0 +1,59 @@
+.wrapper {
+    width: 100%;
+    border-top: 1px solid #e3e3e4;
+}
+.label {
+    padding : 0 4px;
+    margin-bottom: 12px;
+}
+.account_item{
+    width: 100%;
+   
+    padding: 8px 8px;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    &:hover{
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+    
+}
+
+.account_item-img{
+    flex-shrink: 0;
+    
+    width: 52px;
+}
+// .account_img{
+//     // width: 32px;
+//     // height: 32px;
+// }
+.nickname{
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    color: #161823;
+}
+
+.name{
+    font-size: 1.2rem;
+    color: #161823bf;
+}
+.check{
+    padding: 0 4px;
+    font-size: 13px;
+    color:#ff0000;
+}
+.check-circle{
+    padding: 0 4px;
+    font-size: 13px;
+    color:#1877f2;
+}
+.more_btn{
+    padding: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fe2c55;
+    cursor: pointer;
+}

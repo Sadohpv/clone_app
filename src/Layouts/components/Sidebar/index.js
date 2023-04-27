@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import Menu,{MenuItem} from './MenuSidebar'
 import config from '~/config';
 import { HomeIcon,FollowIcon,GroupIcon, HomeActiveIcon,FollowActiveIcon,GroupActiveIcon } from '~/asset/icons/Icons.js';
+import SuggestAcount from './SuggestAcount';
 
 const cx = classNames.bind(styles);
 
@@ -33,7 +34,9 @@ function Sidebar() {
 
 				/>
 			</Menu>
-			
+			<SuggestAcount label='Suggest Account' />
+			<SuggestAcount label='Following Account' />
+
 		</aside>
 	);
 }

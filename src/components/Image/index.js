@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from './Image.module.scss'
 import classNames from "classnames/bind";
 
+const cx = classNames.bind(styles);
 function Image({src,alt,fallback : customFallback = images.defaultAvt,className,...props}) {
     
     const [fallback,setFallback] = useState(customFallback);//fallback : lỗi
@@ -14,7 +15,7 @@ function Image({src,alt,fallback : customFallback = images.defaultAvt,className,
 
     return ( 
         <img 
-        className={classNames(styles.wrapper)}
+        className={cx('wrapper')}
         src = {src || fallback}
         alt = {alt}
             {...props}
@@ -24,7 +25,7 @@ function Image({src,alt,fallback : customFallback = images.defaultAvt,className,
 }
 
 Image.propTypes = {
-    src: PropTypes.string,
+    src: PropTypes.string.isRequired,
     alt: PropTypes.string,
     fallback: PropTypes.string,
     className: PropTypes.string,
